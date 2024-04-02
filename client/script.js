@@ -52,7 +52,7 @@ alert(q.value)
 sendBtn.onclick=async()=>{
    alert(apiKey)
 	alert(q.value)
-   let res=await  fetch("http://127.0.0.1:8000/api/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/Codegenrator",{
+   let res=await  fetch(`/api/${apiKey}/${role}`,{
      method:"POST",
      headers: {
         "Content-type": "application/json"},
