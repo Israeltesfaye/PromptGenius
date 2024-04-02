@@ -1,0 +1,212 @@
+body{
+   padding:0;
+   margin:0;
+}
+nav{
+   height:10vh;
+   width:90vw;
+   display:flex;
+   justify-content:space-between;
+   align-items:center;
+   margin-right:auto;
+   margin-left:auto;
+}
+.container{
+   position:absolute;
+   top:50%;
+   left:50%;
+   transform:translate(-50%,-50%);
+   height:60vh;
+   width:80vw;
+   border:dotted 2px #00A4CC;
+   border-radius:5px;
+   display:flex;
+   flex-direction:column;
+   justify-content:space-between;
+   align-items:center;
+   padding:20px;
+}
+.search-box{
+   width:80%;
+   height:10%;
+   display:flex;
+   align-items:center;
+   justify-content:center;
+}
+.search-box input{
+   padding:11px;
+   border:none;
+   border-top:1px solid #00A4CC;
+   border-left:1px solid #00A4CC;
+   border-bottom:1px solid #00A4CC;
+   background-color:whitesmoke;
+   border-top-left-radius:10px;
+   border-bottom-left-radius:10px;
+}
+.search-box div{
+   height:100%;
+   width:100%;
+   border-bottom-right-radius:10px;
+   border-top-right-radius:10px;
+   background-color:whitesmoke;
+   display:flex;
+   justify-content:center;
+   align-items:center;
+   padding-right:10px;
+   border-top:1px solid #00A4CC;
+   border-right:1px solid #00A4CC;
+   border-bottom:1px solid #00A4CC;
+}
+.chat-box{
+   height:80%;
+   width:80%;
+   border-radius:5px;
+   background:whitesmoke;
+   padding:10px;
+   display:flex;
+   flex-direction:column;
+   overflow:scroll;
+}
+.question{
+   position:relative;
+   /*height:10%;
+   width:80%;*/
+   background:white;
+   border-radius:10px;
+   float:right;
+   padding:10px;
+   margin:5px;
+   display:flex;
+   flex-direction:column;
+   justify-content:center;
+   align-items:center;
+   overflow-wrap:break-word;
+}
+.question label{
+   position:absolute;
+   top:2%;
+   right:2%;
+   font-size:10px;
+   color:gray;
+}
+.answer{
+   position:relative;
+   /*height:10%;
+   width:80%;*/
+   background:#00A4CC;
+   border-radius:10px;
+   float:left;
+   padding:10px;
+   margin:5px;
+   display:flex;
+   flex-direction:column;
+   justify-content:center;
+   align-items:center;
+   overflow-wrap:break-word;
+}
+.question p{
+    overflow-wrap:break-word;
+    text-align:center;
+}
+.answer p{
+    overflow-wrap:break-word;
+text-align:center;
+}
+.answer label{
+   position:absolute;
+   top:2%;
+   left:2%;
+   font-size:10px;
+   color:white;
+}
+.search-box div img{
+   height:90%;
+}
+.menu{
+   display:flex;
+   /*background-color:red;*/
+   width:35%;
+   justify-content:space-between;
+   align-items:center;
+}
+.prompt{
+   position:absolute;
+   top:50%;
+   left:50%;
+   transform:translate(-50%,-50%);
+   height:20vh;
+   width:75vw;
+   background-color:whitesmoke;
+   border-radius:5px;
+   padding:10px;
+   display:none;
+   flex-direction:column;
+   justify-content:space-between;
+   align-items:center;
+   border:solid 2px #00A4CC;
+   }
+.prompt input{
+   padding:10px;
+   border:none;
+   border-radius:10px;
+   border:solid 2px #00A4CC;
+   margin-bottom:10px;
+}
+.prompt button{
+   padding:10px;
+   background-color:#00A4CC;
+   border:none;
+   border-radius:5px;
+   color:white;
+}
+.prompt .btn{
+   display:flex;
+   justify-content:space-between;
+   align-items:center;
+}
+.roles{
+   /*background:red;*/
+   height:85vh;
+   width:80vw;
+   position:absolute;
+   top:50%;
+   left:50%;
+   transform:translate(-50%,-50%);
+   padding:10px;
+   margin-top:10px;
+   border-radius:5px;
+   border:dotted 2px #00A4CC;
+   display:none;
+   grid-template-columns:repeat(2,35vw);
+   gap:10px;
+}
+.role{
+   height:25vh;
+   background-color:blue;
+   padding-left:5px;
+   padding-right:5px;
+   border-radius:5px;
+   background-color:whitesmoke;
+   display:flex;
+   flex-direction:column;
+   justify-content:center;
+   align-items:center;
+}
+.role img{
+   width:100%;
+}
+.active{
+   border:solid 2px #00A4CC;
+}
+.continue{
+   height:10%;
+   width:30%;
+   position:absolute;
+   bottom:0;
+   right:0;
+   background-color:#00A4CC;
+   border:none;
+   border-bottom-left-radius:5px;
+   border-top-left-radius:5px;
+   color:white;
+}
