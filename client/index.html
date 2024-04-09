@@ -4,19 +4,17 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
-   <title>Chatgpt</title>
+   <title>Prompt Genius</title>
    <link rel="stylesheet" href="style.css" type="text/css" media="all" />
 </head>
 <body>
 <nav>
-  <h2>Chatgpt</h2>
+  <h2>PromptGenius</h2>
   <div class="menu">
-  <div>
-     dark
+  <div id="dark">
+     <img src="icons8-half-moon-64 (1).png" id="dark-img">
   </div>
-  <div>
-     settings
-  </div>
+     <img src="icons8-setting-24.png" id="setting">
   </div>
 </nav>
    <div class="roles">
@@ -36,34 +34,26 @@
          <img src="images.jpeg">
          <p class="role-type">Content creator(social media)</p>
       </div>
-        <div class="role">
-         <img src="morphis-digital-art-online-learning.png">
-         <p class="role-type">Assistant</p>
-      </div>
       <button class="continue">Continue</button>
    </div>
 <div class="container">
   <div></div>
   <div class="chat-box">
-     <div class="question">
-       <p> what is the valence electron of boron? </p>
-        <label>You</label>
-     </div>
      <div class="answer">
          <label>Bot</label>
          <p>
-        I don't know either
-        </>
+        Hello! How can I assist you today?
+        </p>
      </div>
   </div>
   <div class="search-box">
      <input type="text" placeholder="type here" id="q">
-     <div id="send"><img src="icons8-telegram-50.png" alt="send"></div>
+     <button id="send"><img src="icons8-send-30.png"></button>
   </div>
 </div>
 <div class="prompt">
    <div>
-   <p>input your <a href="platform.openai.com">openai api key</a></p>
+   <p>input your <a href="https://platform.openai.com">openai api key</a></p>
    <input type="text" placeholder="XXX-XXX-XXX-XXX" id="key-input">
    </div>
    <div class="btn"><div></div><button id="key-submit">submit</button></div>

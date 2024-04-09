@@ -12,9 +12,8 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.post("/api/:key/:role/",async(req,res)=>{
 
-console.log(req.body.q)
-console.log(req.params.key)
 const openai=new OpenAIApi.OpenAI({apiKey:req.params.key})
+try{
 chatCompletion=await openai.chat.completions.create({
 	model:'gpt-3.5-turbo',
 	messages:[
@@ -23,9 +22,11 @@ chatCompletion=await openai.chat.completions.create({
 			content:promptChooser(req.params.role,req.body.q)
 		}
 	]
-})
-	res.json({msg:chatCompletion.choices[0].message.content})
-console.log(chatCompletion.choices[0].message.content)
+})	
+res.json({msg:chatCompletion.choices[0].message.content})
+}catch(err){
+    res.sendStatus(400)
+}
 })
 
 app.listen(port,console.log("server is running"))
