@@ -22,18 +22,7 @@ chatCompletion=await openai.chat.completions.create({
 			content:promptChooser(req.params.role,req.body.q)
 		}
 	]
-/*	messages:[
-		{
-			role:'user',
-			content:"what is the capital city of Ethiopia?"
-		}, 
-		{
-			role:'user',
-			content:"what is its population?"
-		}
-		
-		
-	]*/
+
 })	
 res.json({msg:chatCompletion.choices[0].message.content})
 console.log(chatCompletion.choices[0].message.content)
@@ -45,4 +34,4 @@ catch(err){
 
 })
 
-app.listen(port,console.log("server is running"))
+app.listen(port,console.log("server is running on port "+port))

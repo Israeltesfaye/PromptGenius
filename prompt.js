@@ -1,14 +1,16 @@
 module.exports=function(role,q){
 switch (role) {
    case 'Grammercorrector':
-     return `check and correct grammer,sentence,spelling issues from the following words/sentences and return the corrected one: ${q}`
+     return `process.env.GRAMMER_CORRECTOR ${q}`
       break;
     case 'Codegenerator':
-      return `please responde with the code snippet from the following prompt: ${q}`
-      case 'Contentcreator(social media)':
-      return `please responde with with content/idea for this prompt its for social media ${q}`
+      return `process.env.CODE_GENERATOR ${q}`
+	   break;
+    case 'Contentcreator(social media)':
+      return `process.env.CONTENT_CREATOR ${q}`
+	   break;
     default:
-	return q
+	  return q
    
 }
 }

@@ -4,6 +4,7 @@
   "description": "a chatbot with a openai api with dynamic prompts",
   "main": "index.js",
   "scripts": {
+	"start":"node .",
     "dev": "nodemon ."
   },
   "author": "Israel Tesfaye",
