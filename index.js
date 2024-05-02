@@ -1,10 +1,10 @@
 require("dotenv").config()
 const cors=require("cors")
-const OpenAIApi=require("openai")
 const express=require("express")
 const app=express()
 const port=process.env.PORT || 8000
 const promptChooser=require("./prompt.js")
+const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 app.use(cors())
 app.use(express.static("client"))
@@ -12,23 +12,17 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.post("/api/:key/:role/",async(req,res)=>{
 
-const openai=new OpenAIApi.OpenAI({apiKey:req.params.key})
+const genAI = new GoogleGenerativeAI(req.params.key);
 try{
-chatCompletion=await openai.chat.completions.create({
-	model:'gpt-3.5-turbo',
-	messages:[
-		{
-			role:'user',
-			content:promptChooser(req.params.role,req.body.q)
-		}
-	]
+const model = genAI.getGenerativeModel({ model: "gemini-pro"});
 
-})	
-res.json({msg:chatCompletion.choices[0].message.content})
-console.log(chatCompletion.choices[0].message.content)
+  const prompt = promptChooser(req.params.role,req.body.q)
+  const result = await model.generateContent(prompt);
+  const response = await result.response;
+  const text = response.text();
+  res.json({msg:text})
 }
 catch(err){
-  console.log(err)
     res.sendStatus(400)
 }
 
