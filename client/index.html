@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html class="theme-dark">
+
+<head>
+   <meta charset="UTF-8">
+   
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title></title>
+   <link rel="stylesheet" href="bulma/css/bulma.min.css">
+   <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <style>
+     .center{
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%, -50%);
+     }
+    .bottom{
+       position:absolute;
+       bottom:0;
+    }
+   .wrap{
+      width:100vw;
+     display:flex;
+     justify-content:center;
+    align-items:center;
+   }
+  .chat-box{
+     height:80vh;
+     width:85vw;
+     overflow-y:scroll;
+     z-index:2;
+  }
+ .setting{
+    height:100vh;
+    width:40vw;
+    z-index:1;
+ }
+   </style>
+<div class="is-invisible notification is-dark is-flex is-flex-direction-column is-justify-content-space-between is-align-items-center center">
+   <p class="is-size-5 is-color-white">bring your own api key from <a href="https://aistudio.google.com" class="is-link is-info">aistudio.google.com</a></p>
+   <input id="keyinput" type="text" class="input my-3" placeholder="Your api key">
+   <button id="key" class="button is-warning">submit</button>
+</div>
+<nav class="navbar mx-3" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+      <a role="button" class="navbar-item button is-link" id="setting">⚙️</a> 
+    <!--<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">-->
+       <a role="button" class="navbar-burger"></a>
+    </a>
+  </div>
+</nav>
+<div class="chat-box center block box">
+  <div class="message is-warning">
+  <div class="message-body">hi how can I assist you</div>
+  </div>
+</div>
+<div class="wrap">
+<div class="control is-flex is-justify-content-center is-align-items-center is-focused bottom mb-1 mt-3">
+   <input type="text" id="input" class="input is-link mx-3" placeholder="Ask me anything! ">
+   <button id="send" class="button is-link">🎉</button>
+</div>
+</div>
+
+</div>
+<sc2ript src="aos-master/dist/aos.js"></script>
+<script src="elements.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
