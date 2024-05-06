@@ -24,6 +24,7 @@ const model = genAI.getGenerativeModel({ model: "gemini-pro"});
 }
 catch(err){
     res.sendStatus(400)
+    console.log(err)
 }
 
 })
