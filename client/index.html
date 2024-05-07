@@ -10,40 +10,14 @@
    <link
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
 <link rel="stylesheet" href="style.css">
+
+<script src="https://kit.fontawesome.com/4aea132699.js" crossorigin="anonymous"></script>
 </head>
 <body>
-   <style>
-     .center{
-        position:absolute;
-        top:50%;
-        left:50%;
-        transform:translate(-50%, -50%);
-     }
-    .bottom{
-       position:absolute;
-       bottom:0;
-    }
-   .wrap{
-      width:100vw;
-     display:flex;
-     justify-content:center;
-    align-items:center;
-   }
-  .chat-box{
-     height:80vh;
-     width:85vw;
-     overflow-y:scroll;
-     z-index:2;
-  }
- .setting{
-    height:100vh;
-    width:40vw;
-    z-index:1;
- }
-   </style>
 <div class="is-invisible notification is-dark is-flex is-flex-direction-column is-justify-content-space-between is-align-items-center center">
-   <p class="is-size-5 is-color-white">bring your own api key from <a href="https://aistudio.google.com" class="is-link is-info">aistudio.google.com</a></p>
+   <p class="is-size-5 is-color-white">bring your own api key from <a href="https://aistudio.google.com/app/apikey" class="is-link is-info">aistudio.google.com</a></p>
    <input id="keyinput" type="text" class="input my-3" placeholder="Your api key">
    <button id="key" class="button is-warning">submit</button>
 </div>
@@ -61,14 +35,15 @@
   </div>
 </div>
 <div class="wrap">
-<div class="control is-flex is-justify-content-center is-align-items-center is-focused bottom mb-1 mt-3">
+<div class="control is-flex is-justify-content-center is-align-items-center is-focused bottom mb-1 mt-3" id="loading">
    <input type="text" id="input" class="input is-link mx-3" placeholder="Ask me anything! ">
-   <button id="send" class="button is-link">🎉</button>
+   <button id="send" class="button is-link"><i class="fa-solid fa-paper-plane"></i></button>
 </div>
 </div>
 
 </div>
-<sc2ript src="aos-master/dist/aos.js"></script>
+<script src="aos-master/dist/aos.js"></script>
+<!--<script src="https://unpkg.com/aos@next/dist/aos.js"></script>-->
 <script src="elements.js"></script>
 <script src="script.js"></script>
 </body>

@@ -19,37 +19,56 @@ window.onload=()=>{
      notf.classList.remove("is-invisible")
   }
 }
-
-sendBtn.onclick=async()=>{
-   console.log(`http://localhost:8000/api/${apiKey}/${role}`) 
+chatBox.addEventListener("DOMNodeInserted", function() {
+// Scroll to the bottom of the chatbox
+chatBox.scrollTop = chatBox.scrollHeight;
+});
+sendBtn.onclick=async()=>{ 
+loading.classList.add("is-loading")
+sendBtn.innerHTML=""
    diva=document.createElement("div")
      diva.className="message is-link"
-     diva.setAttribute("data-aos","fade-down")
-     diva.setAttribute("data-aos-easing","linear")
-     diva.setAttribute("data-aos-duration","1500")
      diva.innerHTML=`
      <div class="message-body">${input.value}</div>
   </div>
      `
      chatBox.appendChild(diva)
-
    request=await fetch(`/api/${apiKey}/${role}`,{
       method:"POST",
        headers: {
           "Content-type": "application/json"},
           body:JSON.stringify({q:input.value}),
      })
+	 if(request.ok){
+		 loading.classList.remove('is-loading')
+		 sendBtn.innerHTML='<i class="fa-solid fa-paper-plane"></i>'
      response=await request.json()
      div=document.createElement("div")
+	 divc=document.createElement("div")
+	 divc.className="message-body"
      div.className="message is-warning"
-     div.setAttribute("data-aos","fade-down")
-     div.setAttribute("data-aos-easing","linear")
-     div.setAttribute("data-aos-duration","1500")
-     div.innerHTML=`
-     <div class="message-body">${response.msg}</div>
-  </div>
+     divc.innerText=`
+    ${response.msg}
      `
+	 div.appendChild(divc)
      chatBox.appendChild(div)
+	 input.value=""
+	 }
+	 else{
+		 loading.classList.remove('is-loading')
+		 sendBtn.innerHTML='<i class="fa-solid fa-paper-plane"></i>'
+		 div=document.createElement("div")
+	 divc=document.createElement("div")
+	 divc.className="message-body"
+     div.className="message is-warning"
+     divc.innerText=`
+    Something went wrong please try again later
+
+     `
+	 div.appendChild(divc)
+	 chatBox.appendChild(div)
+	 input.value=""
+	 }
    
 }
 
