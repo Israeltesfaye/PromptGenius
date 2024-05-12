@@ -5,6 +5,8 @@
    <meta charset="UTF-8">
    
    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+<meta name="description" content="Design stunning AI-generated prompts with ease, using our advanced AI prompt designer." />
    <title>PromptGenius</title>
    <link
   rel="stylesheet"
@@ -17,11 +19,11 @@
 <body>
 <div class="is-invisible notification is-dark is-flex is-flex-direction-column is-justify-content-space-between is-align-items-center center">
   <iframe src="assets/video/Intro.mp4"></iframe>
-  <p class="is-size-5">Welcome to our website! We highly recommend that you watch this short video to get a quick overview of the basic functions and tools available on our platform.</p>
+  <p class="is-size-5 is-color-white">Welcome to our website! We highly recommend that you watch this short video to get a quick overview of the basic functions and tools available on our platform.</p>
   <button class="button is-link" id="continue">Continue</button>
 </div>
 <div class="is-invisible notification is-dark is-flex is-flex-direction-column is-justify-content-space-between is-align-items-center center">
-  <p class="is-size-6">Please be advised that this AI chatbot may occasionally provide inaccurate or biased information. It is crucial to verify the accuracy of any information obtained through this service with other reliable sources. </p>
+  <p class="is-size-6 is-color-white">Please be advised that this AI chatbot may occasionally provide inaccurate or biased information. It is crucial to verify the accuracy of any information obtained through this service with other reliable sources. </p>
   <button class="button is-link" id="Ok">Ok</button>
 </div>
 <div class="is-invisible notification is-dark is-flex is-flex-direction-column is-justify-content-space-between is-align-items-center center">
@@ -43,7 +45,9 @@
 </div>
 <div class="wrap">
 <div class="control is-flex is-justify-content-center is-align-items-center is-focused bottom mb-1 mt-3" id="loading">
-   <input type="text" id="input" class="input is-link mx-3" placeholder="Ask me anything! ">
+  <input type="text" id="input" class="input is-link mx-3" placeholder="Ask me anything! ">
+  <input type="file" id="file" hidden>
+  <button type="image" class="button is-link mx-3" onclick="chooseFile()"><i class="fa-regular fa-image"></i></button> 
    <button id="send" class="button is-link"><i class="fa-solid fa-paper-plane"></i></button>
 </div>
 </div>

@@ -1,6 +1,3 @@
-/*AOS.init({
-        easing: 'ease-in-out-sine'
-      }); */
 darkBtn.onclick=()=>{
    if(html.className=="theme-dark"){
      localStorage.setItem("theme","light")
@@ -13,6 +10,7 @@ darkBtn.onclick=()=>{
 }
 apiKey=localStorage.getItem("pgKey")?localStorage.getItem("pgKey"):undefined 
 role=localStorage.getItem("pgRole")
+charLength=localStorage.getItem("charLength")?localStorage.getItem("charLength"):localStorage.setItem("charLength","short")
 window.onload=()=>{
   theme(html,localStorage.getItem("theme"))
   if (apiKey==null|undefined) {
@@ -36,7 +34,7 @@ sendBtn.innerHTML=""
   </div>
      `
      chatBox.appendChild(diva)
-   request=await fetch(`/api/${apiKey}/${role}`,{
+   request=await fetch(`/api/${apiKey}/${role}/${charLength}`,{
       method:"POST",
        headers: {
           "Content-type": "application/json"},
@@ -50,6 +48,7 @@ sendBtn.innerHTML=""
 	 divc=document.createElement("div")
 	 divc.className="message-body"
      div.className="message is-warning"
+     //div.innerHTML='<i class="fa-solid fa-wand-magic-sparkles"></i>'
      divc.innerText=`
     ${response.msg}
      `
@@ -89,4 +88,7 @@ continueBtn.onclick=()=>{
 okBtn.onclick=()=>{
   notfb.classList.add("is-invisible")
   notfc.classList.remove("is-invisible")
+}
+chooseFile=()=>{
+  file.click()
 }

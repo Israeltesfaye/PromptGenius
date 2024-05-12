@@ -3,6 +3,12 @@ backBtn.onclick=()=>{
 }
 window.onload=()=>{
   theme(html,localStorage.getItem("theme"))
+  select.value=localStorage.getItem("charLength")
+  roles.forEach((r)=>{
+   if (r.childNodes[1].alt==localStorage.getItem('pgRole')) {
+      r.classList.add("border")
+   }
+  })
 }
 roles.forEach((r)=>{
    r.onclick=()=>{
@@ -10,3 +16,6 @@ roles.forEach((r)=>{
       location.href="/index.html"
    }
 })
+select.onclick=()=>{
+   localStorage.setItem("charLength",select.value)
+}

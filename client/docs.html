@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>API Documentation</title>
+<link rel="stylesheet" href="assets/css/docs.css">
+</head>
+
+<body>
+<header>
+<h1>API Documentation</h1>
+</header>
+
+<main>
+<section>
+<h2>Endpoints</h2>
+<ul>
+<li>
+<a href="#endpoint-1">Endpoint 1</a>
+</li>
+<li>
+<a href="#endpoint-2">Endpoint 2</a>
+</li>
+<li>
+<a href="#endpoint-3">Endpoint 3</a>
+</li>
+</ul>
+</section>
+
+<section>
+<h2 id="endpoint-1">Endpoint 1</h2>
+<h3>Description</h3>
+<p>This endpoint does something.</p>
+<h3>Request</h3>
+<pre>
+<code>
+POST /api/endpoint-1
+{
+"key1": "value1",
+"key2": "value2"
+}
+</code>
+</pre>
+<h3>Response</h3>
+<pre>
+<code>
+{
+"success": true,
+"data": {
+"key1": "value1",
+"key2": "value2"
+}
+}
+</code>
+</pre>
+<h3>Example Code</h3>
+<pre>
+<code>
+const fetch = require('node-fetch');
+
+async function callEndpoint1() {
+const response = await fetch('https://example.com/api/endpoint-1', {
+method: 'POST',
+headers: {
+'Content-Type': 'application/json'
+},
+body: JSON.stringify({
+key1: 'value1',
+key2: 'value2'
+})
+});
+
+const data = await response.json();
+
+console.log(data);
+}
+
+callEndpoint1();
+</code>
+</pre>
+</section>
+
+<section>
+<h2 id="endpoint-2">Endpoint 2</h2>
+<h3>Description</h3>
+<p>This endpoint does something else.</p>
+<h3>Request</h3>
+<pre>
+<code>
+GET /api/endpoint-2
+</code>
+</pre>
+<h3>Response</h3>
+<pre>
+<code>
+{
+"success": true,
+"data": [
+{
+"key1": "value1",
+"key2": "value2"
+},
+{
+"key1": "value3",
+"key2": "value4"
+}
+]
+}
+</code>
+</pre>
+<h3>Example Code</h3>
+<pre>
+<code>
+const fetch = require('node-fetch');
+
+async function callEndpoint2() {
+const response = await fetch('https://example.com/api/endpoint-2');
+
+const data = await response.json();
+
+console.log(data);
+}
+
+callEndpoint2();
+</code>
+</pre>
+</section>
+
+<section>
+<h2 id="endpoint-3">Endpoint 3</h2>
+<h3>Description</h3>
+<p>This endpoint does something else.</p>
+<h3>Request</h3>
+<pre>
+<code>
+PUT /api/endpoint-3
+{
+"key1": "value1",
+"key2": "value2"
+}
+</code>
+</pre>
+<h3>Response</h3>
+<pre>
+<code>
+{
+"success": true,
+"data": {
+"key1": "value1",
+"key2": "value2"
+}
+}
+</code>
+</pre>
+<h3>Example Code</h3>
+<pre>
+<code>
+const fetch = require('node-fetch');
+
+async function callEndpoint3() {
+const response = await fetch('https://example.com/api/endpoint-3', {
+method: 'PUT',
+headers: {
+'Content-Type': 'application/json'
+},
+body: JSON.stringify({
+key1: 'value1',
+key2: 'value2'
+})
+});
+
+const data = await response.json();
+
+console.log(data);
+}
+
+callEndpoint3();
+</code>
+</pre>
+</section>
+</main>
+
+<footer>
+    <p>Copyright &copy; 2023</p>
+</footer>
+</body>
+
+</html>

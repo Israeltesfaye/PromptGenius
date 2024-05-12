@@ -8,6 +8,8 @@
       <link
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+  <script src="https://kit.fontawesome.com/4aea132699.js" crossorigin="anonymous"></script>
+
    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
@@ -38,7 +40,17 @@
          <p>Game Developer</p>
       </div>
 </div>
-<button class="button is-link" id="back">Go back</button>
+<div class="mx-3">
+   <p class="is-size-5">response character length</p>
+   <div class="select">
+      <select>
+         <option value="short">short</option>
+         <option value="medium">medium</option>
+         <option value="long">long</option>
+      </select>
+   </div>
+</div>
+<button class="button is-link mt-3" id="back"><i class="fa-solid fa-arrow-left mr-2"></i>Go back</button>
 </body>
 <script src="js/elements.js"></script>
 <script src="js/theme.js"></script>
