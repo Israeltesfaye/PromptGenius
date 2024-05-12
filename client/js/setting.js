@@ -1,6 +1,9 @@
 backBtn.onclick=()=>{
    location.href="/index.html"
 }
+window.onload=()=>{
+  theme(html,localStorage.getItem("theme"))
+}
 roles.forEach((r)=>{
    r.onclick=()=>{
       localStorage.setItem("pgRole",r.childNodes[1].alt)

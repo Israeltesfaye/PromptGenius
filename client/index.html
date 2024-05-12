@@ -5,27 +5,34 @@
    <meta charset="UTF-8">
    
    <meta name="viewport" content="width=device-width, initial-scale=1">
-   <title></title>
-   <link rel="stylesheet" href="bulma/css/bulma.min.css">
+   <title>PromptGenius</title>
    <link
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="assets/css/style.css">
 
 <script src="https://kit.fontawesome.com/4aea132699.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="is-invisible notification is-dark is-flex is-flex-direction-column is-justify-content-space-between is-align-items-center center">
+  <iframe src="assets/video/Intro.mp4"></iframe>
+  <p class="is-size-5">Welcome to our website! We highly recommend that you watch this short video to get a quick overview of the basic functions and tools available on our platform.</p>
+  <button class="button is-link" id="continue">Continue</button>
+</div>
+<div class="is-invisible notification is-dark is-flex is-flex-direction-column is-justify-content-space-between is-align-items-center center">
+  <p class="is-size-6">Please be advised that this AI chatbot may occasionally provide inaccurate or biased information. It is crucial to verify the accuracy of any information obtained through this service with other reliable sources. </p>
+  <button class="button is-link" id="Ok">Ok</button>
+</div>
+<div class="is-invisible notification is-dark is-flex is-flex-direction-column is-justify-content-space-between is-align-items-center center">
    <p class="is-size-5 is-color-white">bring your own api key from <a href="https://aistudio.google.com/app/apikey" class="is-link is-info">aistudio.google.com</a></p>
    <input id="keyinput" type="text" class="input my-3" placeholder="Your api key">
-   <button id="key" class="button is-warning">submit</button>
+   <button id="key" class="button is-link">submit</button>
 </div>
 <nav class="navbar mx-3" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
       <a role="button" class="navbar-item button is-link" id="setting">⚙️</a> 
-    <!--<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">-->
-       <a role="button" class="navbar-burger"></a>
+       <a role="button" class="navbar-burger" id="dark">🌙</a>
     </a>
   </div>
 </nav>
@@ -42,9 +49,8 @@
 </div>
 
 </div>
-<script src="aos-master/dist/aos.js"></script>
-<!--<script src="https://unpkg.com/aos@next/dist/aos.js"></script>-->
-<script src="elements.js"></script>
-<script src="script.js"></script>
+<script src="js/elements.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
