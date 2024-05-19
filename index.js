@@ -28,15 +28,15 @@ app.post("/api/:key/:role/:charLength",async(req,res)=>{
     }
   }
   const generationConfig = {
-    stopSequences: ["red"],
+    //stopSequences: ["red"],
     maxOutputTokens:pickChar(),
-    temperature: 0.9,
-  topP: 0.1,
-  topK: 16,
+    //temperature: 0.9,
+  //topP: 0.1,
+  //topK: 16,
   };
 const genAI = new GoogleGenerativeAI(req.params.key);
 try{
-const model = genAI.getGenerativeModel({ model: "gemini-pro",generationConfig});
+const model = genAI.getGenerativeModel({ model: "gemini-pro"});
 
   const prompt = promptChooser(req.params.role,req.body.q)
   const result = await model.generateContent(prompt);

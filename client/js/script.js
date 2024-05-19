@@ -1,3 +1,4 @@
+currentTheme=localStorage.getItem("theme")!=null?localStorage.getItem("theme"):localStorage.setItem("theme","dark")
 darkBtn.onclick=()=>{
    if(html.className=="theme-dark"){
      localStorage.setItem("theme","light")
@@ -5,14 +6,18 @@ darkBtn.onclick=()=>{
    }
      else{
        localStorage.setItem("theme","dark")
+       darkBtn.innerHTML="🌞"
      location.reload()
      }
 }
 apiKey=localStorage.getItem("pgKey")?localStorage.getItem("pgKey"):undefined 
 role=localStorage.getItem("pgRole")
 charLength=localStorage.getItem("charLength")?localStorage.getItem("charLength"):localStorage.setItem("charLength","short")
+  
+  label.onclick=()=>{label.innerText=`Bot(${role})`}
 window.onload=()=>{
-  theme(html,localStorage.getItem("theme"))
+  theme(html,currentTheme)
+  label.click()
   if (apiKey==null|undefined) {
      nav.style.display='none'
      chatBox.style.display='none'
@@ -25,54 +30,12 @@ chatBox.addEventListener("DOMNodeInserted", function() {
 chatBox.scrollTop = chatBox.scrollHeight;
 });
 sendBtn.onclick=async()=>{ 
-loading.classList.add("is-loading")
-sendBtn.innerHTML=""
-   diva=document.createElement("div")
-     diva.className="message is-link"
-     diva.innerHTML=`
-     <div class="message-body">${input.value}</div>
-  </div>
-     `
-     chatBox.appendChild(diva)
-   request=await fetch(`/api/${apiKey}/${role}/${charLength}`,{
-      method:"POST",
-       headers: {
-          "Content-type": "application/json"},
-          body:JSON.stringify({q:input.value}),
-     })
-	 if(request.ok){
-		 loading.classList.remove('is-loading')
-		 sendBtn.innerHTML='<i class="fa-solid fa-paper-plane"></i>'
-     response=await request.json()
-     div=document.createElement("div")
-	 divc=document.createElement("div")
-	 divc.className="message-body"
-     div.className="message is-warning"
-     //div.innerHTML='<i class="fa-solid fa-wand-magic-sparkles"></i>'
-     divc.innerText=`
-    ${response.msg}
-     `
-	 div.appendChild(divc)
-     chatBox.appendChild(div)
-	 input.value=""
-	 }
-	 else{
-		 loading.classList.remove('is-loading')
-		 sendBtn.innerHTML='<i class="fa-solid fa-paper-plane"></i>'
-		 div=document.createElement("div")
-	 divc=document.createElement("div")
-	 divc.className="message-body"
-     div.className="message is-warning"
-     divc.innerText=`
-    Something went wrong please try again later
-
-     `
-	 div.appendChild(divc)
-	 chatBox.appendChild(div)
-	 input.value=""
+  disableBtn()
+  createMessage(false,input.value,chatBox, true,role) 
+	await chatCompletion(apiKey,role,charLength,input.value,chatBox)
+	 input.value="" 
 	 }
    
-}
 
 settingsBtn.onclick=()=>{
    location.href="/setting.html"

@@ -20,7 +20,29 @@
      overflow-y:scroll;
   }
 .border{
+  border:solid 2px #4258FF;
+}
+.borderb{
   border:solid 1px #4258FF;
+  border-radius:5px;
+}
+
+.image{
+  height:20%;
+  width:20%;
+}
+.image img{
+  height:100%;
+}
+.top{
+ position:absolute;
+ top:0;
+ left:0;
+}
+.top-right{
+ position:absolute;
+ top:0;
+ right:0;
 }
   /* width */
 ::-webkit-scrollbar {
@@ -44,3 +66,12 @@
     height:100vh;
     width:40vw;
  }
+pre{
+  padding:10px;
+  background-color:#111;
+  color:#4258FF;
+  overflow-x:scroll;
+}
+a{
+  color:#4258FF;
+}
