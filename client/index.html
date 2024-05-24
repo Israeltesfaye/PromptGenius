@@ -35,21 +35,74 @@
    <input id="keyinput" type="text" class="input my-3" placeholder="Your api key">
    <button id="key" class="button is-link">submit</button>
 </div>
-<nav class="navbar mx-3" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-      <a role="button" class="navbar-item button is-link" id="setting">⚙️</a> 
-       <a role="button" class="navbar-burger" id="dark">🌙</a>
-    </a>
+<!--Navigation-->
+<div class="is-invisible notification" id="sideNav">
+  <!--topNav-->
+  
+  <div class="is-flex is-align-items-center is-justify-content-space-between">
+    <h3 class="is-size-6">chat options</h3>
+    <i class="is-pulled-right fa-solid fa-left-long"   id="close"></i>
   </div>
-</nav>
-<div class="chat-box center block box">
+  <!--topNav-->
+  <!--insertChat-->
+  <div>
+    <div class="notification is-flex is-justify-content-center is-align-items-center is-link" id="addnew">
+      <i class="fa-solid fa-plus"></i>
+    </div>
+    <!--inputBox-->
+     <div class="is-invisible is-flex mb-2" id="inputNewChat">
+      <input class="input mr-2 inputWidth" placeholder="chat title" id="chatTitle"/>
+      <button class="button is-link" id="addChat"><i class="fa-solid fa-check"></i> </button>
+    </div>
+    <!--inputBox-->
+  </div>
+  <!--insertChat-->
+  <!--chatList-->
+  <div class="chatList">
+  </div>
+  <!--chatList-->
+  <!--options-->
+    <div class="bottom mb-2 mr-2 ml-2">
+    <div class="mb-2">
+  <p>response  limit</p>
+  <div class="select">
+  <select class="selectb">
+    <option value="short">short</option>
+    <option value="medium" >medium</option>
+    <option value="long">long</option>
+  </select>
+  </div>
+  </div>
+      <div>
+        <button class="button dark l"><i class="icon is-medium fa-solid fa-sun"></i> </button>
+        <button class="button dark d"><i class="icon is-medium fa-solid fa-moon"></i> </button>
+      </div>
+      <button class="button mt-2">more settings</button>
+  </div>
+  <!--options-->
+</div>
+<!--Navigation-->
+<!--smallNavigation-->
+<div class="notification  is-flex is-flex-direction-column is-align-items-center is-justify-content-space-between" id="smallsideNav">
+  <!--topNav-->
+  <div><i class="is-pulled-right fa-solid fa-right-long " id="open"></i>
+  </div>
+  <!--topNav-->
+  <!--chatList-->
+  <div class="chatListb ml-2 mr-2">
+    
+  </div>
+  <!--chatList-->
+  </div>
+<!--smallNavigation-->
+<div class="chat-box block box is-shadowless">
   <div class="notification is-flex">
     <label class="label top ml-2">Bot</label>
     <div>Hello! How can I assist you today?</div>
   </div>
  </div>
 <div class="wrap">
-<div class="control is-flex is-justify-content-center is-align-items-center is-focused bottom mb-1 mt-3" id="loading">
+<div class="control is-flex is-justify-content-center is-align-items-center is-focused  mb-1 mt-3" id="loading">
   <input type="text" id="input" class="input is-link mx-3" placeholder="Ask me anything! ">
   <input type="file" id="file" hidden>
   <button type="image" class="button is-link mx-3" onclick="chooseFile()"><i class="fa-regular fa-image"></i></button> 
@@ -57,11 +110,13 @@
 </div>
 </div>
 
-</div>
+
 <script src="js/elements.js"></script>
 <script src="js/theme.js"></script>
+<script src="js/chatHistory.js"></script>
 <script src="js/animations.js"></script>
 <script src="js/utils.js"></script>
+<script src="js/nav.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>

@@ -27,26 +27,21 @@ target.appendChild(Maindiv)
 document.querySelector(".new-message").classList.remove("new-message")
 }*/
 }
-async function chatCompletion(apiKey,role,charLength,question,target){
-  startLoading(role)
-  request=await fetch(`/api/chat/${apiKey}/${role}/${charLength}`,{
-      method:"POST",
-       headers: {
-          "Content-type": "application/json"},
-          body:JSON.stringify({q:question, history:chatList[currentChat]. content}),
-     })
-     if(request.ok){
-      stopLoading(target)
-       response=await request.json()
-       await createMessage(true,response.msg,target,true,role)
-       createChatMessage(currentChat,"model",response.msg)
-       enableBtn()
-     }
-     else{
-      stopLoading(target)
-      console.log(chatList[chatList.length-1])
-      await createMessage(true,"Something went wrong please try again later",target,true,role)
-      createChatMessage(currentChat,"model","Something went wrong please try again later")
-      enableBtn() 
-     }
+chatList=localStorage.getItem("chatHistory")!=null?JSON.parse(localStorage.getItem("chatHistory")):localStorage.setItem("chatHistory",JSON.stringify([]))
+currentChat=localStorage.getItem("currentChat")!==null?parseInt(localStorage.getItem("currentChat")):0
+function createChat(title){
+  chatList.push({title:title,content:[]})
+  localStorage.setItem("chatHistory",JSON.stringify(chatList))
+}
+function createChatMessage(currentChat,role,content){
+  chatList[currentChat].content.push({
+        role: role,
+        parts: [{ text: content }],
+      })
+      localStorage.setItem("chatHistory",JSON.stringify(chatList)) 
+}
+function renderChat(currentChat){
+  chatList[currentChat].content.forEach((chat)=>{
+    createMessage(chat.role=="user"?false:true,chat.parts[0].text,chatBox, true)
+  })
 }

@@ -1,3 +1,41 @@
+@keyframes slide{
+  0%{
+    width:15vw;
+  }
+  0%{
+    width:85vw;
+  }
+}
+.chatList{
+  overflow-y:scroll;
+  height:60%;
+}
+.chatListb{
+  overflow-y:auto;
+  height:60%;
+}
+.mauto{
+  margin-right:auto;
+  margin-left:auto;
+}
+#sideNav{
+  position:absolute;
+  left:0;
+  height:100vh;
+  width:45vw;
+  z-index:50;
+  animation:slide 1s;
+}
+#smallsideNav{
+  position:absolute;
+  left:0;
+  height:100vh;
+  width:15vw;
+  z-index:50;
+}
+.inputWidth{
+  width:80%;
+}
      .center{
         position:absolute;
         top:50%;
@@ -9,13 +47,22 @@
        bottom:0;
     }
    .wrap{
-      width:100vw;
+      width:85vw;
+      position:absolute;
+      right:0;
+      bottom:0;
      display:flex;
      justify-content:center;
     align-items:center;
    }
   .chat-box{
-     height:80vh;
+    position:absolute;
+    top:0;
+    right:0;
+    margin:0 auto 0 auto;
+    /*left:50%;*/
+    /*transform:translate(0%, -50%);*/
+     height:90vh;
      width:85vw;
      overflow-y:scroll;
   }
